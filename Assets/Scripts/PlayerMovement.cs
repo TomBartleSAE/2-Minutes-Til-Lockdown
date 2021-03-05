@@ -24,8 +24,9 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        // Set the sprite based on its horizontal movement
+        // Set the sprite based on its movement input
         anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
     }
 
     private void FixedUpdate()
