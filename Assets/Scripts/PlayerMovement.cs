@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Move the player based on movement speed
-        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
+        if (!GameManager.gameOver)
+        {
+            rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
+        }
     }
 }
