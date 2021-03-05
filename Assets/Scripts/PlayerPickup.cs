@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerPickup : MonoBehaviour
 {
     ShoppingList list;
+    UIMessage message;
     
     [SerializeField]
     float pickupRadius = 5f;
@@ -16,6 +17,7 @@ public class PlayerPickup : MonoBehaviour
     {
         // TODO: Find a better way to get shopping list, maybe events or static function?
         list = FindObjectOfType<ShoppingList>();
+        message = FindObjectOfType<UIMessage>();
     }
 
     private void Update()
@@ -25,7 +27,7 @@ public class PlayerPickup : MonoBehaviour
             // Check if any items are within a certain radius of the player
             Collider2D foundItem = Physics2D.OverlapCircle(transform.position, pickupRadius, itemLayer);
 
-            if (foundItem != null)
+            if (foundItem != null && !GameManager.gameOver)
             {
                 PickupItem(foundItem);
             }
@@ -46,7 +48,7 @@ public class PlayerPickup : MonoBehaviour
         else
         {
             // Show warning message
-            print("This item is not on your list!");
+            StartCoroutine(message.ShowMessage("This item is not on your shopping list!", 3));
         }
     }
 }
