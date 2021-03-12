@@ -12,10 +12,23 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
+    [SerializeField]
+    float pushForce;
+
+    bool stunned = false;
+    float stunTimer = 0;
+
+    [SerializeField]
+    float stunDuration;
+
+    Transform spriteTransform;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
+
+        spriteTransform = GetComponentInChildren<SpriteRenderer>().transform;
     }
 
     void Update()
@@ -27,14 +40,40 @@ public class PlayerMovement : MonoBehaviour
         // Set the sprite based on its movement input
         anim.SetFloat("Horizontal", movement.x);
         anim.SetFloat("Vertical", movement.y);
+
+        if (stunned)
+        {
+            stunTimer += Time.deltaTime;
+            spriteTransform.Rotate(new Vector3(0f, 0f, 360f / stunDuration) * Time.deltaTime);
+
+            if (stunTimer > stunDuration)
+            {
+                stunned = false;
+                stunTimer = 0;
+                spriteTransform.rotation = Quaternion.identity;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         // Move the player based on movement speed
-        if (!GameManager.gameOver)
+        if (!GameManager.gameOver && !stunned)
         {
             rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Shopper"))
+        {
+            stunned = true;
+            
+            Vector2 pushDirection = transform.position - collision.transform.position;
+            pushDirection = pushDirection.normalized;
+
+            rb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
         }
     }
 }
