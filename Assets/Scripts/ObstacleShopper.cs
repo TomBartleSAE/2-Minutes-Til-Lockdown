@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObstacleShopper : MonoBehaviour
 {
+    Animator anim;
+    
     [SerializeField]
     Transform startPoint, endPoint;
 
@@ -15,8 +17,19 @@ public class ObstacleShopper : MonoBehaviour
     [SerializeField]
     float pushForce;
 
+    enum StartDirection { Right, Left}
+    [SerializeField]
+    StartDirection startDirection;
+
     private void Start()
     {
+        anim = GetComponent<Animator>();
+
+        if (startDirection == StartDirection.Left)
+        {
+            anim.SetTrigger("Change");
+        }
+        
         startPosition = startPoint.position;
         endPosition = endPoint.position;
         direction = endPoint.position;
@@ -29,22 +42,13 @@ public class ObstacleShopper : MonoBehaviour
         if (transform.position == startPosition)
         {
             direction = endPosition;
+            anim.SetTrigger("Change");
         }
         
         if (transform.position == endPosition)
         {
             direction = startPosition;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-/*            Vector2 pushDirection = collision.transform.position - transform.position;
-            pushDirection = pushDirection.normalized;
-
-            collision.GetComponent<Rigidbody2D>().AddForce(pushDirection * pushForce, ForceMode2D.Impulse);*/
+            anim.SetTrigger("Change");
         }
     }
 }

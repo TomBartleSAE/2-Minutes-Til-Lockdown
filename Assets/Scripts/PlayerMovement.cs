@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (stunned)
         {
             stunTimer += Time.deltaTime;
-            spriteTransform.Rotate(new Vector3(0f, 0f, 360f / stunDuration) * Time.deltaTime);
+            spriteTransform.Rotate(new Vector3(0f, 0f, 360f) * Time.deltaTime);
 
             if (stunTimer > stunDuration)
             {
