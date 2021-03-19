@@ -17,7 +17,7 @@ public class CountdownTimer : MonoBehaviour
     {
         timerText = GetComponent<Text>();
     }
-    
+    // Displays the time left based on minutes and seconds
 	void DisplayTime()
 	{
 		minutes = Mathf.FloorToInt(timer / 60);
@@ -29,6 +29,7 @@ public class CountdownTimer : MonoBehaviour
     {
         timer -= Time.deltaTime;
 		DisplayTime();
+		// When time runs out, scene changes
 		if (timer <= 0)
 		{
 			Application.LoadLevel("TestSceneTom");
