@@ -26,7 +26,7 @@ public class Checkout : MonoBehaviour
             {
                 StartCoroutine(message.ShowMessage("You don't have all the items on your shopping list yet!", 3));
             }
-            else if (list.GetShoppingList().Count == 0)
+            else
             {
                 GameManager.gameOver = true;
                 victoryScreen.SetActive(true);

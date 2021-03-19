@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Shopper"))
+        if (collision.gameObject.CompareTag("Shopper") && !GameManager.gameOver)
         {
             stunned = true;
             
