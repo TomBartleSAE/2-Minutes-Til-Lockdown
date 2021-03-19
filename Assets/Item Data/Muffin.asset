@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e28ecad8d3781347b01ad974f187227, type: 3}
-  m_Name: Bread
+  m_Name: Muffin
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f3200aea2503c1447ba47e1dfa7bab89, type: 3}
