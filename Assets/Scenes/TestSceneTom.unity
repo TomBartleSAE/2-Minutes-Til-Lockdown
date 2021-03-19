@@ -770,28 +770,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1228916843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7515979179754853474, guid: 87e79dc55520f074db656eaa807e77b7,
-    type: 3}
-  m_PrefabInstance: {fileID: 7515979181317048593}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1228916844
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228916843}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!1 &1483279512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1353,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5401836731681410322, guid: 867bb08e10336d245b635291cf50d2c0,
+        type: 3}
+      propertyPath: listLength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5401836731681410322, guid: 867bb08e10336d245b635291cf50d2c0,
         type: 3}
       propertyPath: listContents

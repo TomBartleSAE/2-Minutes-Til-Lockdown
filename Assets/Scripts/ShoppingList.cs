@@ -22,9 +22,13 @@ public class ShoppingList : MonoBehaviour
     [SerializeField]
     Item[] allItems;
 
+    Checkout checkout;
+
     private void Start()
     {
         WriteList();
+
+        checkout = FindObjectOfType<Checkout>();
     }
 
     public void WriteList()
@@ -63,8 +67,14 @@ public class ShoppingList : MonoBehaviour
 
     public void CollectItem(Item collectedItem)
     {
+        // Enable the crossout sprite on the collected item then remove it from the list
         itemSlots[currentList.IndexOf(collectedItem)].transform.GetChild(2).GetComponent<Image>().enabled = true;
         currentList.Remove(collectedItem);
+
+        if (currentList.Count == 0)
+        {
+            checkout.EnableGlow();
+        }
     }
 
     public List<Item> GetShoppingList()

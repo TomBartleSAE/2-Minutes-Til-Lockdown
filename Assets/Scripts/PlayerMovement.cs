@@ -33,24 +33,27 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Get player input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        // Set the sprite based on its movement input
-        anim.SetFloat("Horizontal", movement.x);
-        anim.SetFloat("Vertical", movement.y);
-
-        if (stunned)
+        if (!GameManager.gameOver)
         {
-            stunTimer += Time.deltaTime;
-            spriteTransform.Rotate(new Vector3(0f, 0f, 360f) * Time.deltaTime);
+            // Get player input
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
-            if (stunTimer > stunDuration)
+            // Set the sprite based on its movement input
+            anim.SetFloat("Horizontal", movement.x);
+            anim.SetFloat("Vertical", movement.y);
+
+            if (stunned)
             {
-                stunned = false;
-                stunTimer = 0;
-                spriteTransform.rotation = Quaternion.identity;
+                stunTimer += Time.deltaTime;
+                spriteTransform.Rotate(new Vector3(0f, 0f, 360f) * Time.deltaTime);
+
+                if (stunTimer > stunDuration)
+                {
+                    stunned = false;
+                    stunTimer = 0;
+                    spriteTransform.rotation = Quaternion.identity;
+                }
             }
         }
     }

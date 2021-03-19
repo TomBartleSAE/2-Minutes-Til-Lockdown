@@ -10,6 +10,8 @@ public class Checkout : MonoBehaviour
     [SerializeField]
     GameObject victoryScreen;
 
+    bool listComplete = false;
+
     private void Start()
     {
         list = FindObjectOfType<ShoppingList>();
@@ -30,5 +32,10 @@ public class Checkout : MonoBehaviour
                 victoryScreen.SetActive(true);
             }
         }
+    }
+
+    public void EnableGlow()
+    {
+        GetComponentInChildren<ParticleSystem>().Play();
     }
 }
