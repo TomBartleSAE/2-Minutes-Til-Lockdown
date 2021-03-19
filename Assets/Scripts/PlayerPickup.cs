@@ -6,9 +6,8 @@ public class PlayerPickup : MonoBehaviour
 {
     ShoppingList list;
     UIMessage message;
-    
-    [SerializeField]
-    float pickupRadius = 5f;
+
+    Collider2D foundItem;
 
     [SerializeField]
     LayerMask itemLayer;
@@ -24,9 +23,6 @@ public class PlayerPickup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Check if any items are within a certain radius of the player
-            Collider2D foundItem = Physics2D.OverlapCircle(transform.position, pickupRadius, itemLayer);
-
             if (foundItem != null && !GameManager.gameOver)
             {
                 PickupItem(foundItem);
@@ -49,6 +45,24 @@ public class PlayerPickup : MonoBehaviour
         {
             // Show warning message
             StartCoroutine(message.ShowMessage("This item is not on your shopping list!", 3));
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Item"))
+        {
+            collision.GetComponent<ItemPickup>().EnableGlow(true);
+            foundItem = collision;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<ItemPickup>())
+        {
+            collision.GetComponent<ItemPickup>().EnableGlow(false);
+            foundItem = null;
         }
     }
 }
