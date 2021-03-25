@@ -10,7 +10,6 @@ public class UIMessage : MonoBehaviour
     private void Start()
     {
         uiText = GetComponent<Text>();
-        StartCoroutine(ShowMessage("You have 2 minutes to find all the items on your shopping list and reach the checkout!", 5));
     }
 
     public IEnumerator ShowMessage(string messageText, float duration)

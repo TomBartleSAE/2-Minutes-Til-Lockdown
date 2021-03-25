@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.gameOver)
+        if (GameManager.gameState == GameManager.GameState.Play)
         {
             // Get player input
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Move the player based on movement speed
-        if (!GameManager.gameOver && !stunned)
+        if (GameManager.gameState == GameManager.GameState.Play && !stunned)
         {
             rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
         }
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Shopper") && !GameManager.gameOver)
+        if (collision.gameObject.CompareTag("Shopper") && GameManager.gameState == GameManager.GameState.Play)
         {
             stunned = true;
             

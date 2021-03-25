@@ -21,9 +21,9 @@ public class PlayerPickup : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && GameManager.gameState == GameManager.GameState.Play)
         {
-            if (foundItem != null && !GameManager.gameOver)
+            if (foundItem != null)
             {
                 PickupItem(foundItem);
             }

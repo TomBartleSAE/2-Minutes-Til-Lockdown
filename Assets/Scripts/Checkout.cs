@@ -28,7 +28,7 @@ public class Checkout : MonoBehaviour
             }
             else
             {
-                GameManager.gameOver = true;
+                GameManager.gameState = GameManager.GameState.Paused;
                 victoryScreen.SetActive(true);
             }
         }

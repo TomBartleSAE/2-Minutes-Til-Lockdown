@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool gameOver = false;
+    public enum GameState { MainMenu, Play, Paused};
+    public static GameState gameState;
 
     public void ReloadScene()
     {
-        gameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
