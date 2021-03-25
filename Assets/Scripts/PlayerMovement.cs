@@ -7,8 +7,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     
-    [SerializeField]
-    float movementSpeed = 5f;
+    public float movementSpeed = 5f;
 
     Vector2 movement;
 

@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StartCountdown : MonoBehaviour
 {
-    Text countdownText;
+    TextMeshProUGUI countdownText;
     Animator anim;
 
     private void Start()
     {
         GameManager.gameState = GameManager.GameState.MainMenu;
         
-        countdownText = GetComponent<Text>();
+        countdownText = GetComponent<TextMeshProUGUI>();
         anim = GetComponent<Animator>();
 
         StartCoroutine(Countdown());
