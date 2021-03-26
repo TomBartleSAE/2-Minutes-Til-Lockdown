@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Checkout : MonoBehaviour
 {
     ShoppingList list;
     UIMessage message;
-
-    [SerializeField]
-    GameObject victoryScreen;
 
     bool listComplete = false;
 
@@ -28,8 +26,8 @@ public class Checkout : MonoBehaviour
             }
             else
             {
-                GameManager.gameState = GameManager.GameState.Paused;
-                victoryScreen.SetActive(true);
+                GameManager.gameState = GameManager.GameState.MainMenu;
+                SceneManager.LoadScene("Victory");
             }
         }
     }

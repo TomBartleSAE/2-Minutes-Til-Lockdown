@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Supermarket.unity
     guid: 66c333b611154484daab1fd58bde87e5
   - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 0e9c4bee00346d34f9cdedcbb90864ac
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
-    guid: 1a6212323d210704780f96f63a428f16
+    guid: 7eff6e5356099f54495e40db97f8cc6c
   m_configObjects: {}
