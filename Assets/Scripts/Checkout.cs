@@ -38,4 +38,14 @@ public class Checkout : MonoBehaviour
     {
         GetComponentInChildren<ParticleSystem>().Play();
     }
+
+    private void OnEnable()
+    {
+        EventManager.ListCompleted += EnableGlow;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.ListCompleted -= EnableGlow;
+    }
 }

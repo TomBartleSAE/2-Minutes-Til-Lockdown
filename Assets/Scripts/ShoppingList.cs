@@ -24,13 +24,9 @@ public class ShoppingList : MonoBehaviour
     [SerializeField]
     Item[] allItems;
 
-    Checkout checkout;
-
     private void Start()
     {
         WriteList();
-
-        checkout = FindObjectOfType<Checkout>();
     }
 
     public void WriteList()
@@ -77,7 +73,7 @@ public class ShoppingList : MonoBehaviour
 
         if (currentList.Count == 0)
         {
-            checkout.EnableGlow();
+            EventManager.OnListComplete();
         }
     }
 
