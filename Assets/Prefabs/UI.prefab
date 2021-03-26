@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 803946746}
   - component: {fileID: 2027391889444967736}
   m_Layer: 5
-  m_Name: Start Countdown
+  m_Name: Start Countdown1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
