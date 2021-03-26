@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
 	public void PlayGame()
 	{
-		SceneManager.LoadScene("TestSceneTom");
+		SceneManager.LoadScene("Supermarket");
 	}
 	
 	public void GoToCreditsMenu()
