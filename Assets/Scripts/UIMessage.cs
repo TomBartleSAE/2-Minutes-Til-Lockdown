@@ -25,7 +25,6 @@ public class UIMessage : MonoBehaviour
 
     public void ListCompleteMessage()
     {
-        print("working");
         StartCoroutine(ShowMessage("You have all the items you need, now get to the checkout!", 5));
     }
 
