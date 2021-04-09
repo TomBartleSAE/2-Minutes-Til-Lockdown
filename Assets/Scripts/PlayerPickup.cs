@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
 {
+    public AudioSource track;
+
     ShoppingList list;
     UIMessage message;
 
@@ -40,6 +42,7 @@ public class PlayerPickup : MonoBehaviour
             // Remove it from the list and destroy the pickup object
             list.CollectItem(type);
             Destroy(foundItem.gameObject);
+            track.Play();
         }
         else
         {

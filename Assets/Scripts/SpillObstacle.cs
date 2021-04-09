@@ -7,12 +7,14 @@ public class SpillObstacle : MonoBehaviour
     private PlayerMovement player;
     public float slowSpeed = 2.5f;
     private float savedSpeed;
+    private AudioSource track;
 
     // Start is called before the first frame update
     void Start()
     {
         print("whoops a spill");
         player = FindObjectOfType<PlayerMovement>();
+        track = GetComponent<AudioSource>();
     }
 
    void OnTriggerEnter2D(Collider2D col)
@@ -21,6 +23,7 @@ public class SpillObstacle : MonoBehaviour
         {
             savedSpeed = player.movementSpeed;
             player.movementSpeed = slowSpeed;
+            track.Play();
         }
         
     }
@@ -30,6 +33,7 @@ public class SpillObstacle : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             player.movementSpeed = savedSpeed;
+            track.Stop();
         }
     }
 }

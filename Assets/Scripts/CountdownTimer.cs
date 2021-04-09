@@ -30,7 +30,7 @@ public class CountdownTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (timer <= 60 && !changeMusic)
+		if (timer <= 62 && !changeMusic)
 		{
 			Destroy(firstTrack.gameObject);
 			secondTrack.Play();
