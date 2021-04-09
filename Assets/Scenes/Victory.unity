@@ -375,9 +375,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: abedf3137d523d541a23610c8edc047b, type: 2}
-  m_sharedMaterial: {fileID: -92655953438214099, guid: abedf3137d523d541a23610c8edc047b,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -401,7 +400,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.7
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -599,7 +598,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 426470521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0672d84271a71e24d9821a86fc7fd063, type: 3}
+  m_Script: {fileID: 11500000, guid: 16ae2aca89d37e841a1c32f893624537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &427604509
@@ -1145,9 +1144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Try Again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: abedf3137d523d541a23610c8edc047b, type: 2}
-  m_sharedMaterial: {fileID: -92655953438214099, guid: abedf3137d523d541a23610c8edc047b,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CountdownTimer : MonoBehaviour
 {
 	public string levelToLoad;
-	private float timer = 70f;
+	private float timer = 120f;
 	private Text timerText;
 	private float minutes;
 	private float seconds;
