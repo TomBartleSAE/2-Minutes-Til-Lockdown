@@ -1964,6 +1964,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 672758460020312994, guid: af3d416762e00a84da2aca0ba600bf1e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
+      objectReference: {fileID: 0}
     - target: {fileID: 2063287816165315532, guid: af3d416762e00a84da2aca0ba600bf1e,
         type: 3}
       propertyPath: firstTrack
@@ -1979,6 +1984,11 @@ PrefabInstance:
       propertyPath: secondTrack
       value: 
       objectReference: {fileID: 315400225}
+    - target: {fileID: 2063287816165315535, guid: af3d416762e00a84da2aca0ba600bf1e,
+        type: 3}
+      propertyPath: m_Text
+      value: 2:00
+      objectReference: {fileID: 0}
     - target: {fileID: 3120064536233595794, guid: af3d416762e00a84da2aca0ba600bf1e,
         type: 3}
       propertyPath: m_Pivot.x
