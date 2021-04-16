@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2144965838811013280}
   - component: {fileID: 2144965838811013281}
   m_Layer: 6
-  m_Name: Cereal
+  m_Name: Blue Cereal
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: dada7f15054926e4b824802c53ecb950, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
