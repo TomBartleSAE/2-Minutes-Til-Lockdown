@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
+    AudioSource hitSFX;
     
     public float movementSpeed = 5f;
 
@@ -14,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float pushForce;
 
-    bool stunned = false;
+    public bool stunned = false;
     float stunTimer = 0;
 
     [SerializeField]
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
+        hitSFX = GetComponent<AudioSource>();
 
         spriteTransform = GetComponentInChildren<SpriteRenderer>().transform;
     }
@@ -45,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             if (stunned)
             {
                 stunTimer += Time.deltaTime;
-                spriteTransform.Rotate(new Vector3(0f, 0f, 360f) * Time.deltaTime);
+                spriteTransform.Rotate(new Vector3(0f, 0f, 360f / stunDuration) * Time.deltaTime);
 
                 if (stunTimer > stunDuration)
                 {
@@ -71,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Shopper") && GameManager.gameState == GameManager.GameState.Play)
         {
             stunned = true;
+
+            hitSFX.Play();
             
             Vector2 pushDirection = transform.position - collision.transform.position;
             pushDirection = pushDirection.normalized;

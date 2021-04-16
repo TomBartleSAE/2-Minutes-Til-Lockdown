@@ -13,7 +13,7 @@ public class CountdownTimer : MonoBehaviour
 	private bool changeMusic = false;
 	public AudioSource firstTrack;
 	public AudioSource secondTrack;
-	
+	public AudioSource endingTrack;
 	
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,11 @@ public class CountdownTimer : MonoBehaviour
 		{
 			timer -= Time.deltaTime;
 		}
+
+		if (timer <= 6f && !endingTrack.isPlaying)
+        {
+			endingTrack.Play();
+        }
 		
 		DisplayTime();
 		// When time runs out, scene changes

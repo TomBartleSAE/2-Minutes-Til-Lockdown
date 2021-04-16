@@ -47,6 +47,7 @@ public class PlayerPickup : MonoBehaviour
         else
         {
             // Show warning message
+            GetComponent<PlayerMovement>().stunned = true;
             StartCoroutine(message.ShowMessage("This item is not on your shopping list!", 3));
         }
     }
