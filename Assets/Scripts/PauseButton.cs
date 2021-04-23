@@ -32,9 +32,12 @@ public class PauseButton : MonoBehaviour
         switch (GameManager.gameState)
         {
             case GameManager.GameState.Play:
+                // Pauses game and sets button sprite to play button
                 Time.timeScale = 0;
                 GameManager.gameState = GameManager.GameState.Paused;
                 image.sprite = playSprite;
+
+                // Find all audio sources, pause any that are playing audio and store them in a list
                 playingAudio = new List<AudioSource>();
                 foreach(AudioSource source in audioSources)
                 {
@@ -46,17 +49,21 @@ public class PauseButton : MonoBehaviour
                 }
 
                 break;
+            
             case GameManager.GameState.Paused:
+                // Unpauses games and sets button sprite to pause button
                 Time.timeScale = 1;
                 GameManager.gameState = GameManager.GameState.Play;
                 image.sprite = pauseSprite;
 
+                // Resume all audio sources that were previously playing audio
                 foreach (AudioSource source in playingAudio)
                 {
                     source.Play();
                 }
 
                 break;
+            
             default:
                 break;
         }

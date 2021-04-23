@@ -7,19 +7,19 @@ public class ObstacleShopper : MonoBehaviour
     Animator anim;
     
     [SerializeField]
-    Transform startPoint, endPoint;
+    Transform startPoint, endPoint; // Transforms that will show where the shopper moves between
 
     [SerializeField]
-    float speed;
+    float speed; // Distance travelled per second
 
-    Vector3 startPosition, endPosition, direction;
+    Vector3 startPosition, endPosition, direction; // Position vectors for the start and end point transforms
 
     [SerializeField]
-    float pushForce;
+    float pushForce; // Force applied to player when collided with
 
     enum StartDirection { Right, Left}
     [SerializeField]
-    StartDirection startDirection;
+    StartDirection startDirection; // Sets starting animation to be facing the direction shopper is moving
 
     private void Start()
     {
@@ -37,14 +37,14 @@ public class ObstacleShopper : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, direction, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, direction, speed * Time.deltaTime); // Move toward desired position
         
+        // If shopper reaches target position, change target to be the other position
         if (transform.position == startPosition)
         {
             direction = endPosition;
             anim.SetTrigger("Change");
         }
-        
         if (transform.position == endPosition)
         {
             direction = startPosition;

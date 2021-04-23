@@ -11,7 +11,7 @@ public class StartCountdown : MonoBehaviour
 
     private void Start()
     {
-        GameManager.gameState = GameManager.GameState.MainMenu;
+        GameManager.gameState = GameManager.GameState.MainMenu; // Prevent player input during initial countdown
         
         countdownText = GetComponent<TextMeshProUGUI>();
         anim = GetComponent<Animator>();
@@ -21,6 +21,7 @@ public class StartCountdown : MonoBehaviour
 
     private IEnumerator Countdown()
     {
+        // Change text every second to align with text animation
         countdownText.text = "3";
         yield return new WaitForSeconds(1);
 
@@ -34,7 +35,7 @@ public class StartCountdown : MonoBehaviour
         countdownText.text = "Shop!";
         yield return new WaitForSeconds(2);
 
-        GameManager.gameState = GameManager.GameState.Play;
+        GameManager.gameState = GameManager.GameState.Play; // Allow player to move once countdown is complete
         Destroy(gameObject);
     }
 }

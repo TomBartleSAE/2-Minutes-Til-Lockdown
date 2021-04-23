@@ -16,7 +16,6 @@ public class PlayerPickup : MonoBehaviour
 
     private void Start()
     {
-        // TODO: Find a better way to get shopping list, maybe events or static function?
         list = FindObjectOfType<ShoppingList>();
         message = FindObjectOfType<UIMessage>();
     }
@@ -54,6 +53,7 @@ public class PlayerPickup : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        // When close to item, enable glow and store item for use in PickupItem()
         if (collision.CompareTag("Item"))
         {
             collision.GetComponent<ItemPickup>().EnableGlow(true);
@@ -63,6 +63,7 @@ public class PlayerPickup : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        // Turn off glow and forget item when leaving its area
         if (collision.GetComponent<ItemPickup>())
         {
             collision.GetComponent<ItemPickup>().EnableGlow(false);

@@ -71,6 +71,7 @@ public class ShoppingList : MonoBehaviour
         itemSlots[completeList.IndexOf(collectedItem)].transform.GetChild(2).GetComponent<Image>().enabled = true;
         currentList.Remove(collectedItem);
 
+        // When list has no more items, trigger the list completed event
         if (currentList.Count == 0)
         {
             EventManager.OnListComplete();

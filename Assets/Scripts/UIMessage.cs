@@ -15,11 +15,12 @@ public class UIMessage : MonoBehaviour
 
     public IEnumerator ShowMessage(string messageText, float duration)
     {
+        // Show text on screen
         uiText.text = messageText;
         uiText.enabled = true;
 
+        // Wait for allocated seconds, then hide message
         yield return new WaitForSeconds(duration);
-
         uiText.enabled = false;
     }
 

@@ -47,13 +47,13 @@ public class PlayerMovement : MonoBehaviour
             if (stunned)
             {
                 stunTimer += Time.deltaTime;
-                spriteTransform.Rotate(new Vector3(0f, 0f, 360f / stunDuration) * Time.deltaTime);
+                spriteTransform.Rotate(new Vector3(0f, 0f, 360f / stunDuration) * Time.deltaTime); // Spin the player sprite one full rotation over the duration of the stun
 
                 if (stunTimer > stunDuration)
                 {
-                    stunned = false;
-                    stunTimer = 0;
-                    spriteTransform.rotation = Quaternion.identity;
+                    stunned = false; // Resume controls
+                    stunTimer = 0; // Reset stun timer for next stun
+                    spriteTransform.rotation = Quaternion.identity; // Reset rotation in case player sprite is tilted
                 }
             }
         }
@@ -76,9 +76,9 @@ public class PlayerMovement : MonoBehaviour
 
             hitSFX.Play();
             
+            // Push player in relative direction away from shopper
             Vector2 pushDirection = transform.position - collision.transform.position;
             pushDirection = pushDirection.normalized;
-
             rb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
         }
     }
